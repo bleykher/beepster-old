@@ -1,0 +1,422 @@
+/*****************
+   HTML RESET
+*****************/
+html{color:#000;background:#000;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+
+/*****************
+   General
+*****************/
+
+@font-face {
+    font-family: OpenSans;
+    src: local("OpenSans"), url(fonts/open-sans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: OpenSansLight;
+    src: local("OpenSans-Light"), url(fonts/open-sans/OpenSans-Light.ttf);
+}
+
+@font-face {
+    font-family: MyriadPro;
+    src: local("Myriad Pro"), url(fonts/myriad-pro/MyriadPro-Regular.otf);
+}
+
+body {
+	color: #fff;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-weight:300;
+	position: absolute;
+	/* Make arrow stick to right side of the screen when screen is scaled below 1280px wide: */
+	min-width: 1280px;
+	width: 100%;
+}
+
+#container {
+	width: 1000px;
+	z-index: 25;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	/* -moz-user-select: none; */
+	/* -webkit-user-select: none; */
+}
+
+a {	 
+	font-weight:300; 
+	text-decoration:none; 
+	-webkit-transition-property:color; 	-webkit-transition-duration:250ms, 250ms; 	-webkit-transition-timing-function: linear, ease-in;
+	-moz-transition-property:color; 	-moz-transition-duration:250ms, 250ms; 		-moz-transition-timing-function: linear, ease-in;
+	-o-transition-property:color; 		-o-transition-duration:250ms, 250ms; 		-o-transition-timing-function: linear, ease-in;
+}
+
+a						{ color:#39B0CE; }
+a:hover					{ color:#339999; }
+
+a span { display: none; }
+
+/* Firefox outline fix */
+:focus {
+  -moz-outline-style: none;
+  outline: none;
+}
+
+
+/*****************
+  Header
+*****************/
+
+#header {	
+	height: 101px;	
+	margin-bottom:40px;
+	position: relative;
+	z-index: 40;	
+}
+
+/*********************
+   Background Image
+*********************/
+
+#background {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    /* min-height: 960px; */
+    min-width: 1280px;
+	top: 0;
+	overflow: hidden;
+}
+
+#background IMG.bg {
+    position:absolute;
+    margin: 0 auto;
+	width: 1920px;
+	height: 1000px;
+    right: 0;
+    top:0;
+    left: 0;
+    z-index: 5;
+   	/* -moz-user-select: none; */
+	/* -webkit-user-select: none; */
+}
+
+#background IMG.bg {
+    z-index:18;
+    opacity:1.0;	
+}
+
+#background IMG.bg.active {
+    z-index:20;
+    opacity:1.0;
+}
+
+#background IMG.bg.last-active { z-index: 19; }
+
+/* BG Lighting FX (between BG food items and foreground elements) */
+#background #bigRadial {
+	/* Radial gradients: */
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 70%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.45)), color-stop(70%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover,  rgba(0,0,0,0.45) 0%,rgba(0,0,0,0) 70%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	position:absolute;
+	top:-560px;
+	left:-400px;
+	height:800px;
+	width:800px;
+	z-index:25;
+}
+
+#background #bigLinearLeft {
+	/* Radial gradients: */
+	background: -moz-linear-gradient(left,  rgba(0,0,0,0.30) 0%, rgba(0,0,0,0) 70%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.30)), color-stop(70%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* IE10+ */
+	background: linear-gradient(left,  rgba(0,0,0,0.30) 0%,rgba(0,0,0,0) 70%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#40000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+	position:absolute;	
+	height:100%;
+	width:600px;
+	z-index:24;
+}
+
+/*********************
+   Footer
+*********************/	
+
+#app-store-button span						{ display:none; }
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 120px;
+	background-color: rgba(0, 0, 0, 0.5);
+	font-family: OpenSans;
+	font-size: 14px;
+	
+	-moz-text-shadow: black 0 1px 1px;
+  	-webkit-text-shadow: black 0 1px 1px;
+ 	text-shadow: black 0 1px 1px;
+  	/* For IE 8 */
+ 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=180, Color='#000000')";
+ 	/* For IE 5.5 - 7 */
+ 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=180, Color='#000000');
+}
+
+#app-store-button {
+	display:block;
+	background: url('app-store-badge.png') no-repeat;
+	height:72px;
+	width:208px;
+	margin:0 auto;
+}
+
+#vk_like {
+	display:inline;
+}
+
+/*********************
+   Menu
+*********************/
+
+ul#menu {
+	float: left;
+}
+
+ul#menu li {
+	display: inline;
+	padding-right: 10px;
+	padding-left: 14px;
+	background: url(./bullet-shadowed.png) no-repeat center left;
+}
+
+ul#menu li.first {
+	padding-left: 0;
+	background-image: none;
+}
+
+ul#menu li a {
+	color: white;
+}
+
+/****************
+  Pagination Buttons
+*******************/
+
+ul#toggle {
+	bottom: 170px;
+	clear:both;
+	display: block;
+	height:10px;
+	list-style:none outside none;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	/*margin-bottom: 45px;*/
+	z-index: 99;
+	/* -moz-user-select: none; */
+	/* -webkit-user-select: none; */
+}
+
+ul#toggle li {
+	display: inline;
+	position: relative;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+ul#toggle li a {
+	width: 70px;
+	height: 10px;
+	background: url('pagination-dot-inactive.png');
+	display: inline-block;
+	position: relative;
+}
+
+ul#toggle li a:active			{ top:1px; }
+ul#toggle li.active a 			{ background: url('pagination-dot-active.png'); }
+
+.arrow { position: absolute; }
+.arrow * { display:none; } 
+
+.arrow.previous {
+	left: 0;
+	top: 340px;
+}
+
+.arrow.previous a, .arrow.previous .hover { 
+	background:transparent url(arrow-prev.png) no-repeat 0 0;
+	display: block;
+	height:185px;
+	width:70px;
+	outline:none;	
+	position: relative;
+	z-index: 30;
+}
+
+.arrow.next {
+	right: 0;
+	top: 340px;
+}
+
+.arrow.next a, .arrow.next .hover { 
+	background:transparent url(arrow-next.png) no-repeat 0 0;
+	display: block;
+	height:185px;
+	width:76px;
+	outline:none;	
+	position: relative;
+	z-index: 30;
+} 
+
+.arrow a 		{ background-position:0 0; }
+.arrow a:active { margin-top:1px; }
+
+/*#arrowNext .hover 	{
+	background-position:0 -114px;
+} 
+
+#arrowNext .highlight:hover, #arrowNext .highlight .hover { 
+	background-position:0 -114px !important;
+} */
+
+
+/*************
+   Content
+**************/
+
+div.promo-header,
+div.promo-text {
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.75);
+	padding: 0 15px;
+	margin-bottom: 1px;
+	width: auto !important;
+}
+
+div.promo-header {
+	font: bold 72px/100px MyriadPro;
+	color: #dedede;
+	height: 100px;
+}
+
+div.promo-text {
+	font: 35px/50px OpenSansLight;
+	color: #fff23e;
+	height: 50px;
+}
+
+#iphone,
+#iphone #shell,
+#iphone IMG.phone,
+#background-items li {
+   	-moz-user-select: none;
+	-webkit-user-select: none;	
+}
+
+/* text content */
+#content {
+	position: relative;
+	z-index: 40;
+}
+
+#mainContent{ top:; }
+
+#mainContent li {
+	
+	display: block;
+	margin-top:60px;
+	margin-left:60px;	
+	z-index: 40;
+	position: relative;
+	overflow: hidden;
+}
+
+#mainContent li div {
+	/*-moz-border-radius:5px;
+	border-radius:5px;
+	color:#FFF;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	padding:10px 20px 15px;
+	background: rgb(0, 0, 0); 
+	opacity: 0.75;*/
+	width:570px;
+}
+
+#mainContent li div h1,
+#mainContent li div p {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+}
+
+#mainContent li div h1 {
+	font-size:72px; 
+	/* font-weight:600; */
+	font-weight:500;
+	letter-spacing:-0.025em;
+}
+
+#mainContent li div p {	
+	font-size:36px; 
+	font-weight:300;
+}
+
+/* iphone */
+#iphone {
+	position:absolute;
+	margin-top:-70pt;
+	margin-left: 645px;
+	top: 0;
+}
+
+#iphone #shell {
+	z-index:25;
+	position:relative;
+}
+
+#iphone IMG.phone {
+    position:absolute;
+    right:0;
+    top:143px;
+    left:36px;
+    z-index:18;
+    opacity:1.0;	
+}
+
+#iphone IMG.phone.active {
+    z-index:20;
+    opacity:1.0;
+}
+
+#iphone IMG.phone.last-active { z-index:19; }
+
+/* download button */
+
+#download-appstore {
+	width: 243px;
+	height: 93px;
+	background: url('app-store-badge-2.png') no-repeat 0 0;
+	display: block;
+	position: relative;
+	z-index: 40;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	outline:none;
+}
+
+#download,
+#download-appstore									{ margin-top:30px; left:60px; }
+#download:active,
+#download-appstore:active							{ margin-top:22.5px; }
+#download * 										{ display:none; } 
+#download .hover 									{ background-position:0 -82px; } 
+#download.highlight:hover, #arrowNext.highlight .hover 	{ background-position:0 -82px !important; } 
