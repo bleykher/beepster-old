@@ -413,10 +413,24 @@ div.promo-text {
 	outline:none;
 }
 
+#download-androidstore {
+	width: 243px;
+	height: 94px;
+	background: url('google-play-badge.png') no-repeat 0 0;
+	display: block;
+	position: relative;
+	z-index: 40;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	outline:none;
+}
+
 #download,
 #download-appstore									{ margin-top:30px; left:60px; }
+#download-androidstore                              { margin-top:30px; left:60px; }
 #download:active,
 #download-appstore:active							{ margin-top:22.5px; }
+#download-androidstore:active					    { margin-top:22.5px; }
 #download * 										{ display:none; } 
 #download .hover 									{ background-position:0 -82px; } 
 #download.highlight:hover, #arrowNext.highlight .hover 	{ background-position:0 -82px !important; } 
